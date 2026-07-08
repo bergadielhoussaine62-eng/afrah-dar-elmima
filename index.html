@@ -1,460 +1,198 @@
-# Let's generate a beautiful HTML and CSS structure for Afrah Dar El Mima website
-html_content = """<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>أفراح دار الميمة - تنظيم الحفلات والمناسبات</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <title>أفراح دار الميمة | لتنظيم الحفلات والمناسبات المغربية</title>
+    <style>
+        :root {
+            --gold: #d4af37;
+            --white: #ffffff;
+            --dark: #1a1a1a;
+            --light-gold: #fdfbf7;
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', sans-serif;
+        }
+        body {
+            background-color: var(--white);
+            color: var(--dark);
+        }
+        header {
+            background-color: var(--dark);
+            border-bottom: 3px solid var(--gold);
+            padding: 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        header h1 {
+            color: var(--gold);
+            font-size: 2rem;
+        }
+        .hero {
+            background: linear-gradient(rgba(26,26,26,0.7), rgba(26,26,26,0.7)), url('https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1200') center/cover no-repeat;
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            padding: 20px;
+        }
+        .hero h2 {
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-bottom: 15px;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+        }
+        .section {
+            padding: 60px 20px;
+            text-align: center;
+        }
+        .section-bg {
+            background-color: var(--light-gold);
+        }
+        .section h3 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: var(--dark);
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .service-card {
+            background: var(--white);
+            padding: 30px;
+            border: 1px solid #e8e2d5;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: 0.3s;
+        }
+        .service-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-5px);
+        }
+        .service-card h4 {
+            color: var(--gold);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        .btn-insta {
+            display: inline-block;
+            background-color: var(--gold);
+            color: var(--dark);
+            padding: 12px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 25px;
+            margin-top: 20px;
+            transition: 0.3s;
+        }
+        .btn-insta:hover {
+            background-color: var(--dark);
+            color: var(--gold);
+            border: 1px solid var(--gold);
+        }
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: right;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        footer {
+            background-color: var(--dark);
+            color: var(--white);
+            text-align: center;
+            padding: 20px;
+            border-top: 3px solid var(--gold);
+        }
+    </style>
 </head>
 <body>
 
     <header>
-        <div class="container header-container">
-            <div class="logo">
-                <h1>أفراح دار الميمة</h1>
-                <span>Afrah Dar El Mima</span>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#home" class="active">الرئيسية</a></li>
-                    <li><a href="#services">خدماتنا</a></li>
-                    <li><a href="#gallery">ألبوم الصور</a></li>
-                    <li><a href="#about">من نحن</a></li>
-                    <li><a href="#contact" class="btn-nav">احجز الآن</a></li>
-                </ul>
-            </nav>
-        </div>
+        <h1>أفراح دار الميمة</h1>
     </header>
 
-    <section id="home" class="hero">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <p class="subtitle">مرحباً بكم في عالم الفخامة المغربية</p>
-            <h2>شريككم لتنظيم ليلة العمر الفاخرة</h2>
-            <p class="description">نتميز بأرقى خدمات النكافة، الطبخ المغربي الأصيل، وتزيين قاعات الأفراح بطابع يجمع بين الأصالة والعصرنة.</p>
-            <div class="hero-buttons">
-                <a href="#contact" class="btn-primary">طلب استشارة مجانية</a>
-                <a href="https://www.instagram.com/afrah_dar_el_mima" target="_blank" class="btn-secondary">تابعنا على إنستغرام</a>
+    <section class="hero">
+        <h2>نُضفي الفخامة على ليلة عمركم</h2>
+        <p>تنظيم وهندسة أرقى الحفلات والمناسبات المغربية بطابع تقليدي أصيل ولمسة عصرية ساحرة.</p>
+        <a href="#contact" class="btn-insta">احجز موعداً الآن</a>
+    </section>
+
+    <section class="section">
+        <h3>خدماتنا المتميزة</h3>
+        <div class="services-grid">
+            <div class="service-card">
+                <h4>النكافة المغربية</h4>
+                <p>أرقى اللباسي التقليدية، العمارية، والبرزة الملكية التي تليق بملكة السهرة.</p>
+            </div>
+            <div class="service-card">
+                <h4>تموين الحفلات (Traiteur)</h4>
+                <p>أطباق مغربية أصيلة وشهيوات فاخرة تُحضر بكل حب لإبهار ضيوفكم.</p>
+            </div>
+            <div class="service-card">
+                <h4>تزيين القاعات</h4>
+                <p>تنسيق الورود، الإضاءة، والديكورات الذهبية الفخمة لخلق أجواء ساحرة.</p>
             </div>
         </div>
     </section>
 
-    <section id="services" class="services">
-        <div class="container">
-            <div class="section-title">
-                <span>ما نقدمه لكم</span>
-                <h2>خدماتنا المتميزة</h2>
-                <div class="divider"></div>
-            </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">✨</div>
-                    <h3>النكافة المغربية</h3>
-                    <p>أرقى اللباسي التقليدية، العمارية الفاخرة، والبرزة الملكية التي تليق بملوك ليلتهم.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🍽️</div>
-                    <h3>تموين الحفلات (Traiteur)</h3>
-                    <p>أطباق مغربية أصيلة ومقبلات عصرية تُحضر بأيادٍ محترفة لتبهر ضيوفكم.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🌸</div>
-                    <h3>تزيين القاعات والمطابع</h3>
-                    <p>تنسيق ألوان الورود، الطاولات، والإضاءة لخلق أجواء ساحرة وأسطورية.</p>
-                </div>
-            </div>
-        </div>
+    <section class="section section-bg">
+        <h3>ألبوم أعمالنا</h3>
+        <p>تابعوا أحدث الحفلات، تنظيم الطاولات، واللحظات الساحرة مباشرة على حسابنا في إنستغرام.</p>
+        <a href="https://www.instagram.com/afrah_dar_el_mima" target="_blank" class="btn-insta">زوروا حسابنا على إنستغرام</a>
     </section>
 
-    <section id="gallery" class="gallery">
-        <div class="container">
-            <div class="section-title">
-                <span>لحظات لا تُنسى</span>
-                <h2>من أعمالنا</h2>
-                <div class="divider"></div>
+    <section id="contact" class="section">
+        <h3>تواصلوا معنا</h3>
+        <form class="contact-form" onsubmit="event.preventDefault(); alert('شكراً لتواصلكم مع أفراح دار الميمة! سنتصل بكم قريباً.');">
+            <div class="form-group">
+                <label>الاسم الكامل:</label>
+                <input type="text" required>
             </div>
-            <p class="gallery-info">يمكنكم ملء هذا القسم بأجمل الصور والفيديوهات من حساب الإنستغرام الخاص بكم لتوثيق فخامة تنظيمكم.</p>
-            <div class="gallery-grid">
-                <div class="gallery-item placeholder"><span>صورة العمارية والبرزة</span></div>
-                <div class="gallery-item placeholder"><span>صورة مائدة الطعام الفاخرة</span></div>
-                <div class="gallery-item placeholder"><span>صورة تزيين القاعة والورود</span></div>
+            <div class="form-group">
+                <label>رقم الهاتف (واتساب):</label>
+                <input type="tel" required>
             </div>
-        </div>
-    </section>
-
-    <section id="contact" class="contact">
-        <div class="container">
-            <div class="contact-box">
-                <div class="section-title">
-                    <span>تواصلوا معنا</span>
-                    <h2>احجزوا موعدكم الآن</h2>
-                    <div class="divider"></div>
-                </div>
-                <form onsubmit="event.preventDefault(); alert('شكرًا لتواصلكم مع أفراح دار الميمة! سنتصل بكم قريبًا.');">
-                    <div class="form-group">
-                        <label for="name">الإسم الكامل</label>
-                        <input type="text" id="name" required placeholder="مثال: أمين العلمي">
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">رقم الهاتف</label>
-                        <input type="tel" id="phone" required placeholder="مثال: 0612345678">
-                    </div>
-                    <div class="form-group">
-                        <label for="date">تاريخ المناسبة المتوقع</label>
-                        <input type="date" id="date" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">تفاصيل إضافية</label>
-                        <textarea id="message" rows="4" placeholder="اكتب لنا نوع المناسبة وعدد الضيوف المتوقع..."></textarea>
-                    </div>
-                    <button type="submit" class="btn-submit">إرسال الطلب</button>
-                </form>
+            <div class="form-group">
+                <label>تفاصيل إضافية:</label>
+                <textarea rows="4" placeholder="اكتب لنا نوع المناسبة وعدد الضيوف..."></textarea>
             </div>
-        </div>
+            <button type="submit" class="btn-insta" style="border:none; cursor:pointer; width:100%;">إرسال الطلب</button>
+        </form>
     </section>
 
     <footer>
-        <div class="container footer-content">
-            <p>&copy; 2026 جميع الحقوق محفوظة لـ <strong>أفراح دار الميمة</strong>.</p>
-            <p>صُنع بكل حب ليعكس فخامة الأعراس المغربية.</p>
-        </div>
+        <p>جميع الحقوق محفوظة &copy; 2026 لأفراح دار الميمة</p>
     </footer>
 
 </body>
 </html>
-"""
-
-css_content = """/* CSS Reset & Variables */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-:root {
-    --gold-primary: #D4AF37;
-    --gold-dark: #AA7C11;
-    --gold-light: #F3E5AB;
-    --white: #FFFFFF;
-    --bg-cream: #FDFBF7;
-    --text-dark: #2C2C2C;
-    --text-muted: #666666;
-}
-
-body {
-    font-family: 'Cairo', 'Amiri', serif;
-    background-color: var(--bg-cream);
-    color: var(--text-dark);
-    line-height: 1.6;
-}
-
-.container {
-    width: 85%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-/* Header & Navigation */
-header {
-    background-color: rgba(255, 255, 255, 0.95);
-    border-bottom: 2px solid var(--gold-primary);
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-}
-
-.header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 0;
-}
-
-/* Flexbox workaround styling layout */
-header .header-container {
-    display: table;
-    width: 100%;
-}
-.logo {
-    display: table-cell;
-    vertical-align: middle;
-    text-align: right;
-}
-nav {
-    display: table-cell;
-    vertical-align: middle;
-    text-align: left;
-}
-
-.logo h1 {
-    font-family: 'Amiri', serif;
-    color: var(--gold-dark);
-    font-size: 24px;
-    font-weight: 700;
-}
-.logo span {
-    font-size: 11px;
-    color: var(--text-muted);
-    letter-spacing: 1px;
-    display: block;
-    margin-top: -5px;
-}
-
-nav ul {
-    list-style: none;
-    display: inline-block;
-}
-nav ul li {
-    display: inline-block;
-    margin-right: 20px;
-}
-nav ul li a {
-    text-decoration: none;
-    color: var(--text-dark);
-    font-weight: 600;
-    font-size: 14px;
-    transition: 0.3s;
-}
-nav ul li a:hover, nav ul li a.active {
-    color: var(--gold-dark);
-}
-.btn-nav {
-    background-color: var(--gold-primary);
-    color: white !important;
-    padding: 8px 18px;
-    border-radius: 4px;
-}
-.btn-nav:hover {
-    background-color: var(--gold-dark);
-}
-
-/* Hero Section */
-.hero {
-    background: #111 url('https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1920') no-repeat center center/cover;
-    height: 100vh;
-    display: block;
-    position: relative;
-    padding-top: 25vh;
-    text-align: center;
-    color: white;
-}
-.hero-overlay {
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.6);
-}
-.hero-content {
-    position: relative;
-    z-index: 5;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-.hero .subtitle {
-    color: var(--gold-primary);
-    font-size: 18px;
-    font-weight: 600;
-    margin-bottom: 10px;
-    letter-spacing: 1px;
-}
-.hero h2 {
-    font-family: 'Amiri', serif;
-    font-size: 42px;
-    margin-bottom: 20px;
-    color: var(--white);
-}
-.hero .description {
-    font-size: 16px;
-    margin-bottom: 35px;
-    color: #e0e0e0;
-}
-.hero-buttons a {
-    text-decoration: none;
-    padding: 12px 30px;
-    font-weight: 600;
-    border-radius: 4px;
-    margin: 0 10px;
-    display: inline-block;
-}
-.btn-primary {
-    background-color: var(--gold-primary);
-    color: white;
-    border: 2px solid var(--gold-primary);
-}
-.btn-primary:hover {
-    background-color: var(--gold-dark);
-    border-color: var(--gold-dark);
-}
-.btn-secondary {
-    background-color: transparent;
-    color: white;
-    border: 2px solid white;
-}
-.btn-secondary:hover {
-    background-color: white;
-    color: var(--text-dark);
-}
-
-/* Section Common Titles */
-.section-title {
-    text-align: center;
-    margin-bottom: 50px;
-}
-.section-title span {
-    color: var(--gold-dark);
-    font-size: 14px;
-    font-weight: 600;
-    text-transform: uppercase;
-}
-.section-title h2 {
-    font-family: 'Amiri', serif;
-    font-size: 32px;
-    color: var(--text-dark);
-    margin-top: 5px;
-}
-.divider {
-    width: 60px;
-    height: 3px;
-    background-color: var(--gold-primary);
-    margin: 15px auto 0;
-}
-
-/* Services Section */
-.services {
-    padding: 80px 0;
-    background-color: var(--white);
-}
-.services-grid {
-    text-align: center;
-}
-.service-card {
-    width: 30%;
-    display: inline-block;
-    vertical-align: top;
-    background-color: var(--bg-cream);
-    padding: 40px 20px;
-    margin: 0 1.5%;
-    border: 1px solid #eee;
-    border-top: 4px solid var(--gold-primary);
-    border-radius: 4px;
-    transition: 0.3s;
-}
-.service-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-}
-.service-icon {
-    font-size: 40px;
-    margin-bottom: 20px;
-}
-.service-card h3 {
-    font-size: 20px;
-    margin-bottom: 15px;
-    color: var(--text-dark);
-}
-.service-card p {
-    color: var(--text-muted);
-    font-size: 14px;
-}
-
-/* Gallery Section */
-.gallery {
-    padding: 80px 0;
-}
-.gallery-info {
-    text-align: center;
-    color: var(--text-muted);
-    margin-bottom: 30px;
-}
-.gallery-grid {
-    text-align: center;
-}
-.gallery-item {
-    width: 31%;
-    height: 250px;
-    display: inline-block;
-    margin: 0 1%;
-    background-color: #f0f0f0;
-    border: 2px dashed var(--gold-primary);
-    border-radius: 4px;
-    position: relative;
-}
-.gallery-item.placeholder span {
-    position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    color: var(--gold-dark);
-    font-weight: 600;
-}
-
-/* Contact Section */
-.contact {
-    padding: 80px 0;
-    background-color: var(--white);
-}
-.contact-box {
-    max-width: 600px;
-    margin: 0 auto;
-    background-color: var(--bg-cream);
-    padding: 40px;
-    border-radius: 8px;
-    border: 1px solid rgba(212, 175, 55, 0.3);
-}
-.form-group {
-    margin-bottom: 20px;
-    text-align: right;
-}
-.form-group label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: 600;
-    color: var(--text-dark);
-}
-.form-group input, .form-group textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-family: 'Cairo', sans-serif;
-    font-size: 14px;
-}
-.form-group input:focus, .form-group textarea:focus {
-    outline: none;
-    border-color: var(--gold-primary);
-}
-.btn-submit {
-    width: 100%;
-    background-color: var(--gold-primary);
-    color: white;
-    border: none;
-    padding: 14px;
-    font-size: 16px;
-    font-weight: 600;
-    border-radius: 4px;
-    cursor: pointer;
-    font-family: 'Cairo', sans-serif;
-    transition: 0.3s;
-}
-.btn-submit:hover {
-    background-color: var(--gold-dark);
-}
-
-/* Footer */
-footer {
-    background-color: #1a1a1a;
-    color: #999;
-    padding: 30px 0;
-    text-align: center;
-    font-size: 13px;
-    border-top: 3px solid var(--gold-primary);
-}
-footer strong {
-    color: var(--gold-primary);
-}
-"""
