@@ -1,0 +1,119 @@
+import React from 'react';
+
+export default function Home() {
+  return (
+    <div className="min-h-screen bg-[#FAFAFA] font-serif text-slate-800 antialiased selection:bg-[#D4AF37] selection:text-white">
+      
+      {/* Navbar */}
+      <nav className="border-b border-gold-200/30 bg-white/80 backdrop-blur-md sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center direction-rtl">
+          <div className="text-2xl font-bold tracking-widest text-[#D4AF37] hover:opacity-90 transition-opacity cursor-pointer">
+            أفراح دار الميمة
+          </div>
+          <div className="hidden md:flex space-x-8 space-x-reverse text-sm font-medium">
+            <a href="#home" className="text-[#D4AF37] border-b-2 border-[#D4AF37] pb-1">الرئيسية</a>
+            <a href="#services" className="hover:text-[#D4AF37] transition-colors pb-1">خدماتنا</a>
+            <a href="#gallery" className="hover:text-[#D4AF37] transition-colors pb-1">ألبوم الصور</a>
+            <a href="#testimonials" className="hover:text-[#D4AF37] transition-colors pb-1">آراء العملاء</a>
+            <a href="#contact" className="hover:text-[#D4AF37] transition-colors pb-1">اتصل بنا</a>
+          </div>
+          <button className="bg-gradient-to-r from-[#B38F43] to-[#D4AF37] text-white px-5 py-2 rounded-full text-sm font-semibold shadow-md hover:shadow-lg hover:brightness-110 transition-all">
+            احجز الآن
+          </button>
+        </div>
+      </nav>
+
+      {/* Hero Section */}
+      <section id="home" className="relative bg-white py-20 lg:py-32 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center direction-rtl">
+          
+          {/* Text Content */}
+          <div className="text-right space-y-6 z-10">
+            <span className="text-[#D4AF37] text-sm font-semibold tracking-widest uppercase border-r-4 border-[#D4AF37] pr-3 block">
+              فخامة تنظيم الحفلات المغربية
+            </span>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-tight">
+              نصنع من ليلة عمركم <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#B38F43] via-[#D4AF37] to-[#F3E5AB]">
+                لوحة فنية لا تُنسى
+              </span>
+            </h1>
+            <p className="text-slate-600 text-lg max-w-xl leading-relaxed">
+              في "أفراح دار الميمة"، نجمع بين أصالة التقاليد المغربية وفخامة التنظيم العصري. نهتم بأدق التفاصيل لنجعل من مناسباتكم ذكرى ساحرة تليق بكم وبضيوفكم.
+            </p>
+            <div className="pt-4 flex flex-wrap gap-4 justify-start">
+              <button className="bg-gradient-to-r from-[#B38F43] to-[#D4AF37] text-white px-8 py-3.5 rounded-xl font-bold shadow-lg shadow-gold-500/20 hover:brightness-110 transition-all">
+                اكتشف خدماتنا
+              </button>
+              <button className="border-2 border-[#D4AF37] text-[#B38F43] hover:bg-[#D4AF37]/5 px-8 py-3.5 rounded-xl font-bold transition-all">
+                شاهد أعمالنا
+              </button>
+            </div>
+          </div>
+
+          {/* Hero Image Showcase with Gold Frames */}
+          <div className="relative flex justify-center items-center">
+            <div className="absolute inset-0 bg-gradient-to-tr from-[#D4AF37]/10 to-transparent rounded-full filter blur-3xl w-72 h-72 mx-auto"></div>
+            <div className="relative p-3 border-2 border-[#D4AF37]/30 rounded-2xl bg-white shadow-2xl">
+              {/* هنا غاتكون التصويرة الرئيسية من الإنستغرام */}
+              <div className="w-full h-[400px] md:w-[450px] md:h-[500px] bg-slate-100 rounded-xl overflow-hidden flex items-center justify-center text-slate-400 border border-[#D4AF37]/20">
+                [ صورة العروسة / القاعة بالفستان المغربي والذهبي ]
+              </div>
+              {/* Decorative Gold Leaf/Element */}
+              <div className="absolute -top-4 -left-4 w-12 h-12 border-t-4 border-l-4 border-[#D4AF37]"></div>
+              <div className="absolute -bottom-4 -right-4 w-12 h-12 border-b-4 border-r-4 border-[#D4AF37]"></div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section id="services" className="py-20 bg-[#F7F5F0]">
+        <div className="max-w-7xl mx-auto px-6 text-center space-y-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-950">خدماتنا المتميزة</h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent mx-auto"></div>
+          <p className="text-slate-600 max-w-2xl mx-auto text-sm md:text-base">
+            كل ما تحتاجه لتنظيم زفاف أو حفلة فاخرة متكاملة تحت سقف واحد وبأعلى معايير الجودة
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-12 direction-rtl text-right">
+            {/* Card 1 */}
+            <div className="bg-white p-8 rounded-2xl border border-slate-100 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
+              <div className="w-12 h-12 rounded-xl bg-[#D4AF37]/10 flex items-center justify-center text-[#B38F43] font-bold text-xl mb-6 group-hover:bg-[#D4AF37] group-hover:text-white transition-all">
+                👑
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 mb-3">النكافة المغربية</h3>
+              <p className="text-slate-600 text-sm leading-relaxed">
+                أرقى الملابس والقفاطين المغربية التقليدية، مع العمارية والبرزة الفاخرة التي تجعل من العروس ملكة في ليلتها.
+              </p>
+            </div>
+
+            {/* Card 2 */}
+            <div className="bg-white p-8 rounded-2xl border border-slate-100 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
+              <div className="w-12 h-12 rounded-xl bg-[#D4AF37]/10 flex items-center justify-center text-[#B38F43] font-bold text-xl mb-6 group-hover:bg-[#D4AF37] group-hover:text-white transition-all">
+                🍽️
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 mb-3">تموين الحفلات (Traiteur)</h3>
+              <p className="text-slate-600 text-sm leading-relaxed">
+                أطباق مغربية أصيلة وشهيوات فاخرة تُحضر بأيادٍ خبيرة، مع خدمة تقديم احترافية تليق بضيوفكم الكرام.
+              </p>
+            </div>
+
+            {/* Card 3 */}
+            <div className="bg-white p-8 rounded-2xl border border-slate-100 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
+              <div className="w-12 h-12 rounded-xl bg-[#D4AF37]/10 flex items-center justify-center text-[#B38F43] font-bold text-xl mb-6 group-hover:bg-[#D4AF37] group-hover:text-white transition-all">
+                ✨
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 mb-3">تنظيم وتزيين القاعات</h3>
+              <p className="text-slate-600 text-sm leading-relaxed">
+                تنسيق كامل للإضاءة، الورود، الطاولات، والديكورات الذهبية الفخمة لخلق أجواء ساحرة وأسطورية.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  );
+}
